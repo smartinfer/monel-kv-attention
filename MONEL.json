@@ -1,0 +1,116 @@
+{
+  "schema": "monel.stamp.v1",
+  "stamp": {
+    "developed_by": "Monel",
+    "verified_by": "Monel",
+    "assured_by": "Monel",
+    "monel": "Monel orchestrator (orchestration, verification) + Monel coding agent",
+    "verdict": "ASSURED",
+    "date": "2026-10-11",
+    "run_id": "r01"
+  },
+  "build": {
+    "orchestrator": {
+      "name": "Monel orchestrator",
+      "revision": "87e2ea7"
+    },
+    "builder": {
+      "name": "Monel coding agent",
+      "revision": "d456b45",
+      "mode": "builds and tests its own code before finishing"
+    },
+    "model": {
+      "provider": "openai",
+      "model_id": "gpt-5.1",
+      "reasoning_effort": "none",
+      "max_output_tokens_per_call": 4096
+    },
+    "backend": {
+      "api": "OpenAI Responses (/v1/responses)",
+      "transport": "Monel native model transport (v0.4.4)",
+      "cache_policy": "stable_prefix (explicit prompt_cache_key)"
+    },
+    "isolation": "macOS sandbox-exec; workspace + system + Rust toolchain read-only; offline cargo; credential not visible to agent commands",
+    "toolchain": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "task": {
+      "id": "rust-kv-attention-v1",
+      "source": "Monel evaluation suite, task revision b5de22e"
+    },
+    "attempts": 1,
+    "repair": "none",
+    "human_intervention": "none"
+  },
+  "cost": {
+    "pricing": {
+      "basis": "OpenAI gpt-5.1 list price snapshot 2026-10-10",
+      "usd_per_million": {
+        "input": 1.25,
+        "cached_input": 0.125,
+        "output": 10.0
+      },
+      "note": "computed estimates, not invoiced amounts"
+    },
+    "calls": [
+      {
+        "call": 1,
+        "input_tokens": 7253,
+        "cached_input_tokens": 0,
+        "output_tokens": 656,
+        "latency_ms": 6954,
+        "cost_usd": 0.015626
+      },
+      {
+        "call": 2,
+        "input_tokens": 13360,
+        "cached_input_tokens": 7168,
+        "output_tokens": 2992,
+        "latency_ms": 20015,
+        "cost_usd": 0.038556
+      },
+      {
+        "call": 3,
+        "input_tokens": 16800,
+        "cached_input_tokens": 13184,
+        "output_tokens": 193,
+        "latency_ms": 3016,
+        "cost_usd": 0.008098
+      },
+      {
+        "call": 4,
+        "input_tokens": 17441,
+        "cached_input_tokens": 16896,
+        "output_tokens": 193,
+        "latency_ms": 2469,
+        "cost_usd": 0.004723
+      },
+      {
+        "call": 5,
+        "input_tokens": 18482,
+        "cached_input_tokens": 17536,
+        "output_tokens": 187,
+        "latency_ms": 2981,
+        "cost_usd": 0.005245
+      }
+    ],
+    "totals": {
+      "model_calls": 5,
+      "input_tokens": 73336,
+      "cached_input_tokens": 54784,
+      "output_tokens": 4221,
+      "model_latency_s": 35.4,
+      "cost_usd": 0.072248
+    },
+    "wall_seconds": {
+      "generation": 36.9,
+      "grading": 4.2,
+      "kani": 56.6
+    }
+  },
+  "verification": {
+    "behavior": "PASS",
+    "tests": "22/22",
+    "bounded_proofs": "5/5",
+    "proof_bounds": "capacity 3, dimension 2 (Kani 0.68.0 / CBMC 6.11.0)",
+    "record": "verification/VERIFICATION.json"
+  }
+}

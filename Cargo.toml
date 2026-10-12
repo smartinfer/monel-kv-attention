@@ -1,0 +1,11 @@
+[package]
+name = "kv_attention"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+# No dependencies of any kind are allowed (spec.md §1).
+[dependencies]

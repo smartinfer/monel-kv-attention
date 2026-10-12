@@ -1,0 +1,47 @@
+{
+  "schema": "monel.verification-record.v1",
+  "task": "rust-kv-attention-v1",
+  "source_sha256": {
+    "Cargo.lock": "e6ea663d356a9c1a840b103c643f68c3b70a10a0d01d28cedb990f27502ae959",
+    "Cargo.toml": "fb888a609f847b963981817bfa221d1e0d34697e974c0ad1aa6287ebc191373b",
+    "src/attention.rs": "38fb7e202320fae5dbafd4fbb24ad4a98d3d6192efafa9e99fb174a0296da30e",
+    "src/kv_cache.rs": "76036f56473c0d25e94b78f2eeef13e715809ddfe72439ece7559b777afd9811",
+    "src/lib.rs": "faa595d6d597e663b48a03b5cfaf60591fe3d398c607594fcb83f6afb96c5179",
+    "src/tests.rs": "469b21ab6530e9a9759fa15c601dbb718c67b716870314e511b6bdf0a68641d1",
+    "tests/smoke_tests.rs": "f4b3bd30aacd9942a43c648de8f15559cd0e029d18bf302d4d76a4dee6597a06"
+  },
+  "behavior": {
+    "verdict": "PASS",
+    "failed": [],
+    "groups": "7 public smoke + 1 API conformity + 14 held-out laws (22 total)"
+  },
+  "structure": {
+    "conformity_issues": []
+  },
+  "bounded_proofs": {
+    "k1_new_config": {
+      "verified": true,
+      "seconds": 1.0
+    },
+    "k2_append_transition": {
+      "verified": true,
+      "seconds": 21.8
+    },
+    "k3_dimension_mismatch": {
+      "verified": true,
+      "seconds": 17.5
+    },
+    "k4_accessor_bounds": {
+      "verified": true,
+      "seconds": 6.0
+    },
+    "k5_reset": {
+      "verified": true,
+      "seconds": 10.3
+    }
+  },
+  "proof_bounds": "capacity 3, dimension 2 (Kani 0.68.0 / CBMC 6.11.0)",
+  "assured": true,
+  "definition": "grader behavior PASS (22/22) and Kani K1-K5 VERIFICATION SUCCESSFUL; bounded proofs at capacity 3, dim 2 (VERIFICATION_SCOPE.md)",
+  "toolchain": "rustc 1.97.1 (8bab26f4f 2026-07-14)"
+}
